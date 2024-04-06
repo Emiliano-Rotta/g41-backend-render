@@ -3,13 +3,13 @@ const { v4: uuidv4 } = require('uuid')
 const { Pool } = require('pg')
 
 const config = {
-  user: process.env.PG_USER,
-  password: process.env.PG_PASSWORD,
-  host: process.env.PG_HOST,
-  port: process.env.PG_PORT,
-  connectionString: process.env.PG_DATABASE,
-  allowExitOnIdle: true,
-  ssl: true
+  // user: process.env.PG_USER,
+  // password: process.env.PG_PASSWORD,
+  // host: process.env.PG_HOST,
+  // port: process.env.PG_PORT,
+  connectionString: process.env.DATABASE_URL,
+  // allowExitOnIdle: true,
+  ssl: process.env.node_env === 'development',
 }
 
 const pool = new Pool(config)
